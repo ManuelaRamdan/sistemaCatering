@@ -171,6 +171,8 @@ public class Coordinador extends Persona implements Serializable {
             reserva.setTipoServicio(tipoServicio);
 
             int cantPersonas = EntradaSalida.leerEntero("Ingrese la cantidad de personas que va a asistir al evento");
+            reserva.setCantidadPresonas(cantPersonas);
+
             int precioTotal = calcPrecioTotal(serviciosElegidos, cantPersonas);
             reserva.setPrecio(precioTotal);
 
@@ -354,10 +356,10 @@ public class Coordinador extends Persona implements Serializable {
     private void opcModificarReserva(Reserva r, SistemaCatering sC) {
         boolean seguirModificando = true;
         while (seguirModificando) {
-            char opc = EntradaSalida.leerChar("Que quiere modificar? "
+            char opc = EntradaSalida.leerChar("Que quiere modificar? \n"
                     + "[1] Codigo del cliente\n"
                     + "[2] Fecha de inicio del evento\n"
-                    + "[3] Fech de fin del evento\n"
+                    + "[3] Fecha de fin del evento\n"
                     + "[4] Servicios seleccionados\n"
                     + "[5] Restricciones Dieteticas del cliente\n"
                     + "[6] Preferencias del cliente\n"
@@ -421,6 +423,8 @@ public class Coordinador extends Persona implements Serializable {
                     System.out.println("La cantidad de personas actual es: " + r.getCantidadPersonas());
                     int cantPersonaNueva = EntradaSalida.leerEntero("Ingrese la nueva cantidad de personas: ");
                     r.setCantidadPresonas(cantPersonaNueva);
+                    int precioTotal = calcPrecioTotal(r.getServicios(), cantPersonaNueva);
+                    r.setPrecio(precioTotal);
                     break;
                 case '9'://modo de reserva
                     System.out.println("El modo de reserva actual: " + r.getModoDeReserva());

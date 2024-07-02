@@ -21,7 +21,7 @@ class Reserva implements Serializable {
     private int codCliente;
     private LocalDateTime fechaInicioEvento;
     private LocalDateTime fechaFinEvento;
-    private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
+    private ArrayList<Servicio> servicios;
     private String restirccionesDieteticas;
     private String preferenciaCliente;
     private String tipoServicio;
@@ -30,6 +30,10 @@ class Reserva implements Serializable {
     private String modoDeReserva;
     private Domicilio direccionDeEntrega;
     private boolean estaEntregado;
+
+
+    
+    
 
     public int getCodReserva() {
         return codReserva;

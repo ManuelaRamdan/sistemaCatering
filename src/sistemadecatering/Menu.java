@@ -13,12 +13,14 @@ import java.util.ArrayList;
  */
 class Menu implements Serializable {
 
-    private ArrayList<Plato> platosPrincipal=new ArrayList<Plato>();
+    private ArrayList<Plato> platosPrincipal;
     private String nombreMenu;
     private int precio;
-    private ArrayList<Plato> platosEntrada=new ArrayList<Plato>();
+    private ArrayList<Plato> platosEntrada;
 
     public Menu() {
+        platosPrincipal=new ArrayList<Plato>();
+        platosEntrada=new ArrayList<Plato>();
     }
 
     void agregarPlato(Plato plato, char opc) {//p es plato principal y e es plato de entrada

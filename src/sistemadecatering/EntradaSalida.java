@@ -33,8 +33,27 @@ public class EntradaSalida {
         System.out.println(texto);
         Scanner escaner = new Scanner(System.in);
         String st = escaner.nextLine();
+        
         st = Verificador.verificarString(st);
+        st = filtrarHtml(st);
         return (st == null ? "" : st);
+    }
+    public static String filtrarHtml(String cadena){
+        boolean estamosEnHtml= false;
+        String cadenaAux="";
+        
+        for (int i = 0; i < cadena.length(); i++) {
+            
+            if (cadena.charAt(i) == '<') {
+                estamosEnHtml=true;
+            }else if (cadena.charAt(i) == '>') {
+                estamosEnHtml=false;
+            }else if (!estamosEnHtml) {
+                    cadenaAux+=cadena.charAt(i);   
+            }
+        }
+       
+        return cadenaAux;
     }
 
     public static boolean leerBoolean(String texto) {

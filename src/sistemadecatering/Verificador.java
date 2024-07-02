@@ -79,7 +79,7 @@ public class Verificador {
     public static Menu verificarMenu(String nombre, Servicio s) {
         Menu menu = s.buscarMenu(nombre);
         while (menu == null) {
-            nombre = EntradaSalida.leerString("Error.Ingrese un valor valido:");
+            nombre = EntradaSalida.leerString("Error.Ingrese un valor valido o ingrese el valor en mayuscula:");
             menu = s.buscarMenu(nombre);
         }
 
@@ -91,7 +91,7 @@ public class Verificador {
 
         while (p == null) {
 
-            nombre = EntradaSalida.leerString("Error. Ingrese un valor valido: ");
+            nombre = EntradaSalida.leerString("Error.Ingrese un valor valido o ingrese el valor en mayuscula: ");
             p = m.buscarPlato(nombre);
         }
         return p;
@@ -100,7 +100,7 @@ public class Verificador {
     public static Servicio verificarServicio(SistemaCatering sC, String nombre) {
         Servicio s = sC.buscarServicio(nombre);
         while (s == null) {
-            nombre = EntradaSalida.leerString("Error. Ingrese un valor valido: ");
+            nombre = EntradaSalida.leerString("Error.Ingrese un valor valido o ingrese el valor en mayuscula: ");
             s = sC.buscarServicio(nombre);
         }
         return s;
@@ -124,7 +124,7 @@ public class Verificador {
         boolean esta = verificarModo(modo);
         
         while(!esta){
-            modo = EntradaSalida.leerString("Error.Ingrese un valor valido:");
+            modo = EntradaSalida.leerString("Error.Ingrese un valor valido o ingrese el valor en mayuscula:");
             esta = verificarModo(modo);
         }
 
@@ -153,7 +153,7 @@ public class Verificador {
         LocalTime horaElegida = LocalTime.of(16, 00);
         LocalDateTime hoy = LocalDateTime.of(fecha, horaElegida);
         while(fechaElegida.isBefore(hoy)){
-            System.out.println("Error.Ingrese una fecha valida");
+            System.out.println("Error.Ingrese una fecha valida:");
             fechaElegida = EntradaSalida.leerFecha();
         }
         

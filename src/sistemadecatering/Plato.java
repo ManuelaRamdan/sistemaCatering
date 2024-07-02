@@ -15,7 +15,6 @@ class Plato implements Serializable {
     private String nombre;
 
     public Plato() {
-//        this.nombre = nombre;
     }
 
     public String getNombre() {
